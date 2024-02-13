@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
 from django.views import View
 from django import forms
@@ -58,11 +59,16 @@ class ProductShowView(View):
     
     def get(self, request, id):
         viewData = {}
-        product = Product.products[int(id)-1]
-        viewData["title"] = product["name"] + " - Online Store"
-        viewData["subtitle"] = product["name"] + " - Product information"
-        viewData["product"] = product
+        if int(id) <= len(Product.products): 
+            product = Product.products[int(id)-1]
+            viewData["title"] = product["name"] + " - Online Store"
+            viewData["subtitle"] = product["name"] + " - Product information"
+            viewData["product"] = product
+        else:
+            return HttpResponseRedirect('http://localhost:8000/')
+        
         return render(request, self.template_name, viewData)
+
 
 class ProductForm(forms.Form):
     name = forms.CharField(required=True)
