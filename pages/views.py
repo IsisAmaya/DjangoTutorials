@@ -36,10 +36,10 @@ class ContactPageView(TemplateView):
 
 class Product:
     products = [
-    {"id":"1", "name":"TV", "description":"Best TV", "price" : "$1500"},
-    {"id":"2", "name":"iPhone", "description":"Best iPhone",  "price" : "$3000"},
-    {"id":"3", "name":"Chromecast", "description":"Best Chromecast",  "price" : "$250"},
-    {"id":"4", "name":"Glasses", "description":"Best Glasses",  "price" : "$100"}
+    {"id":"1", "name":"TV", "description":"Best TV", "price" : 1500},
+    {"id":"2", "name":"iPhone", "description":"Best iPhone",  "price" : 3000},
+    {"id":"3", "name":"Chromecast", "description":"Best Chromecast",  "price" : 250},
+    {"id":"4", "name":"Glasses", "description":"Best Glasses",  "price" : 100},
     ]
 
 
